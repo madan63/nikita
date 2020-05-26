@@ -1,9 +1,6 @@
 class Pizza:
     def __init__(self):
         size = 's'
-        cheese = 0
-        pepper = 0
-        mushroom = 0
         self.size = input('S) Small\nM) Medium\nL) Large\nChoose Pizza size: ')
         self.cheese = input('Enter the number of cheese toppings: ')
         self.pepper = input('Enter the number of pepperoni toppings: ') 
@@ -22,12 +19,36 @@ class Pizza:
             return 'your access should be among %s'% ','.join(self.__dict__.keys())
 
     def modify(self):
-        access = input('S) Size\nC) Cheese\nP) Pepper \nM) Mushroom')
+        access = input('S) Size\nC) Cheese\nP) Pepper \nM) Mushroom\nPlease select: ')
         if access == 'S':
-            self.size
+            size = input('S) Small\nM) Medium\nL) Large\nChoose Pizza size: ')
+            setattr(self, 'size', size)
+            return 'changes been noted'
+
+        elif access.lower() in 'cpm':
+            di = {'c': 'cheese', 'p':'pepper', 'm':'mushroom'}
+            tops = int(input('Enter number of {acc} toppings: '.format(acc=di[access])))
+            setattr(self, di[access.lower()], tops)
+            return 'changes been noted'
+
+        else:
+            print('Invalid selection')
+
+    def calcCost(self):
+        price = {'S': 10, 'M':12, 'L':14}
+        size = self.size.upper()
+        amt = price[size]
+        print(self.cheese, self.pepper, self.mushroom)
+        ctop = int(self.cheese) *2 if self.cheese.isdigit() else 0 
+        print(f'Cheese toppings : ${ctop}')
+        ptop = int(self.pepper) *2 if self.cheese.isdigit() else 0
+        print(f'Pepperoni toppings : ${ptop}') 
+        mtop = int(self.mushroom) *2 if self.cheese.isdigit() else 0
+        print(f'Mushroom toppings : ${mtop}')
+
+        totalcost = amt + ctop + mtop + ptop
+        return f'total cost : ${totalcost}'
 
 k = Pizza()
 
-print(k.get('cheese'))
 
-print(k.get('madan'))
