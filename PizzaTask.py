@@ -47,8 +47,30 @@ class Pizza:
         print(f'Mushroom toppings : ${mtop}')
 
         totalcost = amt + ctop + mtop + ptop
-        return f'total cost : ${totalcost}'
+        return 'total cost : ${tc}'.format(tc=totalcost)
 
-k = Pizza()
+# k = Pizza()
+
+
+class DeluxePizza:
+    def __init__(self):
+        size = 's'
+        self.size = input('S) Small\nM) Medium\nL) Large\nChoose Pizza size: ')
+        self.cheese = input('Enter the number of cheese toppings: ')
+        self.pepper = input('Enter the number of pepperoni toppings: ')
+        self.mushroom = input('Enter the number of mushroom toppings: ')
+
+
+
+
+
+
+
+
+
+
+class Demo:
+    pass
+
 
 
