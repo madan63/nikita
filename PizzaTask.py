@@ -49,6 +49,7 @@ class Pizza:
         totalcost = amt + ctop + mtop + ptop
         return 'total cost : ${tc}'.format(tc=totalcost)
 
+
 k = Pizza()
 print(k.get("size"))
 # print(k.get("cheese"))
@@ -69,8 +70,20 @@ class DeluxePizza:
         self.veg = input('Enter the number of veggie toppings: ')
         DeluxePizza.total_pizza += 1
 
+    def get(self, access):
+        sizes = {'s':'Small', 'm':'Medium', 'l':'Large'}
+        if access == 'size':
+            return sizes.get(self.size, 'unknown')
 
-# l = DeluxePizza()
+        if access in self.__dict__.keys():
+            return getattr(self, access)
+
+        else:
+            print('Oops your access in unknown')
+            return 'your access should be among %s'% ','.join(self.__dict__.keys())
+
+
+l = DeluxePizza()
 
 
 # class Demo:
