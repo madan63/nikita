@@ -52,6 +52,7 @@ class Pizza:
 
 k = Pizza()
 print(k.get("size"))
+
 # print(k.get("cheese"))
 # print(k.get("vikash"))
 
@@ -90,5 +91,51 @@ l = DeluxePizza()
 #     pass
 
 # testing
+
+flag = True
+password = 'deluxepizza'
+while flag:
+    print('''Papa John, what do you want to do?
+1.	Enter a new pizza order (password required)
+2.	Change information of a specific order (password required)
+3.	Display details for all pizzas of a specific size (s/m/l)
+4.	Statistics on today’s pizzas
+5.	Quit
+''')
+    choice = int(input('Please enter your choice > '))
+    if choice == 1:
+        pas = input('password: ')
+        if pas == password:
+            pass
+        else:
+            print('Incorrect password')
+
+    elif choice == 3:
+        pas = input('Password: ')
+        if pas == password:
+            pass
+        else:
+            print('Incorrect password')
+
+    elif choice == 3:
+        pass
+        # dispaly the details of all pizzas
+
+    elif choice == 4:
+        pass
+        # display today's pizzas
+        
+    elif choice == 5:
+        con = input('Are you sure to quit(Y/N): ')
+        if con.upper() == 'Y':
+            print('Thanks for visiting')
+            flag = False
+        else:
+            pass
+
+    else:
+        print('Invalid option')
+
+
 
 
